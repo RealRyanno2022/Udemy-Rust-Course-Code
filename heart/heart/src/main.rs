@@ -41,9 +41,86 @@ fn main() {
     // if s1 were mutable we could assign it a new value and use it again
     // but it's immutable so it's garbage and un-useable
 
-    let s1 = String::from("abc");
+    let s1 = String::from("abc");:
     let s2 = s2.clone();
     println!("{}", s1);
+
+    let s1 = String::from("abc");
+    do_stuff(s1);
+    println!("{}", s1); // Error!
+                        
+
+
+    fb do_stuff(s: String) {
+        
+    }
+
+    // References and Borrowing
+
+    let mut s1 = String::from("abc");
+    do_stuff(&mut s1);
+    
+    fb do_stuff(s: &mut String) {
+        s.insert_str(0,"Hello"); // the dot operator in Rust auto-dereferences down to the actual
+                                 // value
+                                 // i.e. you don't need to worry if this is a value or a reference
+                                 // in C we would use (*s) to make sure it has precedence
+                                 // and then use *s = String::from("Replacement); to replace the
+                                 // value. Not nice!
+    }
+
+    // You cannot point to null, use null, or reference stuff that doesn't exist
+
+    // you can have exactly either one mutable reference or many immutable references
+    // so the immutable references get annihilated to save memory
+    // No Segfaults!
+    
+    // Exercise E
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
 
 
 
